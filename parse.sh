@@ -10,6 +10,12 @@ BUILD_URL=$2
 RESULT_FILE_NAME_PATTERN="$1_$(date +'%d-%m_%H-%M')_{BUILD_PRICE}kc.json"
 RESULTS_FOLDER="results/"
 
+if [ $# -lt 2 ]
+then
+	echo "Specify input arguments please. Usage : parse.sh build_name build_url"
+	exit 1
+fi
+
 DATA_FILE="build.dat"
 JSON_ARRAY_FILE="build_array.json"
 
@@ -46,3 +52,5 @@ cp $RESULT_FILE_NAME_PATTERN $RESULTS_FOLDER
 rm $DATA_FILE
 rm $JSON_ARRAY_FILE
 rm $RESULT_FILE_NAME_PATTERN
+
+echo "Current build price is $SUM CZK"
