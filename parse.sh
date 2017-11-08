@@ -3,12 +3,12 @@
 # Purpose:
 #	The script parses saved public list of a products on czc.cz and saves result in json. Sum of products price at file name.
 # Usage:
-#	parse.sh build_name build_url
+#	parse.sh build_name build_url output_folder
 #	e.g. parse.sh my_workstation https://www.czc.cz/83dvj0i0tghk6adaot6tq21c16/seznam 	 	
 
 BUILD_URL=$2
 RESULT_FILE_NAME_PATTERN="$1_$(date +'%d-%m_%H-%M')_{BUILD_PRICE}kc.json"
-RESULTS_FOLDER="results/"
+RESULTS_FOLDER=$3
 
 if [ $# -lt 2 ]
 then
